@@ -14,38 +14,38 @@
   <!-- 🏥 APP TITLE -->
   <div class="app-title">HealthApp</div>
 
-  <!-- 🐰 RABBIT LAYER -->
+  <!-- 🐰 RABBIT ANIMATION -->
   <div class="rabbit-layer">
-
-    <!-- IDLE (loops forever) -->
     <video id="rabbitIdle" class="rabbit active"
       autoplay muted loop playsinline
       src="assets/animations/rabbit-animation-sit.mp4"></video>
 
-    <!-- SUCCESS (plays 2 times) -->
     <video id="rabbitSuccess" class="rabbit"
       muted playsinline
       src="assets/animations/rabbit-animation-smile.mp4"></video>
 
-    <!-- ERROR (plays 2 times) -->
     <video id="rabbitError" class="rabbit"
       muted playsinline
       src="assets/animations/rabbit-animation-sad.mp4"></video>
-
   </div>
 
   <!-- 🎆 FIREWORKS -->
   <div id="fireworks" class="fireworks"></div>
 
-  <!-- ✅ / ❌ TOAST -->
+  <!-- TOAST -->
   <div id="successToast" class="success-toast"></div>
 
   <!-- LOGIN FORM -->
   <div class="content">
     <div class="form-area">
       <div class="form-glass">
+
         <label>Email</label>
-        <input id="username" type="email" placeholder="Enter Email" />
+        <!-- 🐰 EMAIL WITH RABBIT CARET -->
+        <div class="input-wrap">
+          <input id="username" type="email" placeholder="Enter Email" autocomplete="off" />
+          <img id="rabbitCaret" class="rabbit-caret" src="assets/ui/rabbit-caret.png" />
+        </div>
 
         <label>Password</label>
         <input id="password" type="password" placeholder="Enter Password" />
