@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthApp Login</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body>
+
+<div class="login-container">
+
+  <!-- 🏥 APP TITLE -->
+  <div class="app-title">HealthApp</div>
+
+  <!-- 🐰 RABBIT LAYER -->
+  <div class="rabbit-layer">
+
+    <!-- IDLE (loops forever) -->
+    <video id="rabbitIdle" class="rabbit active"
+      autoplay muted loop playsinline
+      src="assets/animations/rabbit-animation-sit.mp4"></video>
+
+    <!-- SUCCESS (plays 2 times) -->
+    <video id="rabbitSuccess" class="rabbit"
+      muted playsinline
+      src="assets/animations/rabbit-animation-smile.mp4"></video>
+
+    <!-- ERROR (plays 2 times) -->
+    <video id="rabbitError" class="rabbit"
+      muted playsinline
+      src="assets/animations/rabbit-animation-sad.mp4"></video>
+
+  </div>
+
+  <!-- 🎆 FIREWORKS -->
+  <div id="fireworks" class="fireworks"></div>
+
+  <!-- ✅ / ❌ TOAST -->
+  <div id="successToast" class="success-toast"></div>
+
+  <!-- LOGIN FORM -->
+  <div class="content">
+    <div class="form-area">
+      <div class="form-glass">
+        <label>Email</label>
+        <input id="username" type="email" placeholder="Enter Email" />
+
+        <label>Password</label>
+        <input id="password" type="password" placeholder="Enter Password" />
+
+        <button id="loginBtn">Login</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="scripts/script.js"></script>
+</body>
+</html>

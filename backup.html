@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HealthApp Login</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#6f6ad7,#5a4fbf);
+  font-family:system-ui,-apple-system;
+}
+
+/* CARD */
+.login-container{
+  width:100%;
+  max-width:380px;
+  height:640px;
+  border-radius:26px;
+  overflow:hidden;
+  position:relative;
+  background:linear-gradient(
+    to bottom,
+    #ededed 0%,
+    #e5e5e5 72%,
+    #f2f1f6 100%   /* ⬅️ reduced purple area */
+  );
+  box-shadow:0 25px 50px rgba(0,0,0,.35);
+}
+
+/* RABBIT */
+#animationVideo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center -60px;
+  z-index:1;
+}
+
+/* CONTENT */
+.content{
+  position:relative;
+  z-index:3;
+  height:100%;
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+}
+
+/* FORM AREA – moved slightly DOWN */
+.form-area{
+  margin-top:350px;   /* ⬅️ moved a little more down */
+}
+
+/* STATUS */
+.status{
+  text-align:center;
+  color:#fff;
+  font-size:15px;
+  font-weight:600;
+  margin-bottom:16px;
+  text-shadow:0 2px 4px rgba(0,0,0,.35);
+}
+
+/* LABEL */
+label{
+  color:#fff;
+  font-size:15px;
+  font-weight:600;
+  margin-bottom:6px;
+  display:block;
+}
+
+/* INPUT */
+input{
+  width:100%;
+  padding:16px;
+  border-radius:16px;
+  background:#ffffff;
+  border:none;
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:18px;
+}
+
+/* BUTTON */
+button{
+  width:100%;
+  padding:18px;
+  border:none;
+  border-radius:18px;
+  background:#0a84ff;
+  color:#fff;
+  font-size:18px;
+  font-weight:700;
+}
+
+/* FIREWORKS ONLY */
+.fireworks{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:10;
+}
+
+.fireworks span{
+  position:absolute;
+  bottom:0;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  animation:blast 1.2s ease-out forwards;
+}
+
+@keyframes blast{
+  to{
+    transform:translate(var(--x),var(--y));
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+  <!-- RABBIT -->
+  <video id="animationVideo" autoplay muted loop playsinline
+    src="assets/animations/rabbit-animation-sit.mp4"></video>
+
+  <!-- CRACKERS -->
+  <div id="fireworks" class="fireworks"></div>
+
+  <div class="content">
+    <div class="form-area">
+
+      <div id="status" class="status">Welcome! Please login</div>
+
+      <!-- <label>Enter your username</label> -->
+      <input id="username" placeholder="Type your username">
+
+      <!-- <label>Enter your password</label> -->
+      <input id="password" type="password" placeholder="Type your password">
+
+      <button id="loginBtn">Login</button>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const video = document.getElementById("animationVideo");
+const fireworks = document.getElementById("fireworks");
+const statusText = document.getElementById("status");
+
+const ANIM={
+  IDLE:"assets/animations/rabbit-animation-sit.mp4",
+  SUCCESS:"assets/animations/rabbit-animation-smile.mp4",
+  ERROR:"assets/animations/rabbit-animation-sad.mp4"
+};
+
+/* CRACKER BLAST */
+function blast(){
+  fireworks.innerHTML="";
+  for(let i=0;i<26;i++){
+    const f=document.createElement("span");
+    const angle=Math.random()*Math.PI*2;
+    const radius=180;
+    f.style.left="50%";
+    f.style.setProperty("--x",Math.cos(angle)*radius+"px");
+    f.style.setProperty("--y",-Math.sin(angle)*radius+"px");
+    f.style.background=["#ffd93b","#ff3b3b","#3bbcff","#3bff6f"]
+      [Math.floor(Math.random()*4)];
+    fireworks.appendChild(f);
+  }
+  setTimeout(()=>fireworks.innerHTML="",1400);
+}
+
+/* LOGIN */
+loginBtn.onclick=()=>{
+  if(username.value==="admin" && password.value==="admin123"){
+    video.src=ANIM.SUCCESS;
+    statusText.textContent="Login successful! 🎉";
+    blast();
+  }else{
+    video.src=ANIM.ERROR;
+    statusText.textContent="Invalid credentials";
+  }
+  setTimeout(()=>video.src=ANIM.IDLE,4000);
+};
+</script>
+
+</body>
+</html>
