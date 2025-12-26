@@ -128,7 +128,7 @@ document.body.appendChild(measureSpan);
 /* EMAIL */
 function updateEmailCaret(){
   measureSpan.textContent = (username.value || "").replace(/ /g,"\u00a0");
-  rabbitCaret.style.left = 14 + measureSpan.offsetWidth + "px";
+  rabbitCaret.style.left = 8 + measureSpan.offsetWidth + "px";
   rabbitCaret.classList.remove("hop");
   void rabbitCaret.offsetWidth;
   rabbitCaret.classList.add("hop");
@@ -143,8 +143,14 @@ username.addEventListener("input",updateEmailCaret);
 
 /* PASSWORD */
 function updatePasswordCaret(){
-  measureSpan.textContent = (password.value || "").replace(/ /g,"\u00a0");
-  rabbitCaretPassword.style.left = 14 + measureSpan.offsetWidth + "px";
+  const len = password.value.length;
+
+  // measure what user actually sees (password bullets)
+  measureSpan.textContent = "•".repeat(len);
+
+  const baseLeft = 5; // same as username for consistent gap
+  rabbitCaretPassword.style.left = baseLeft + measureSpan.offsetWidth + "px";
+
   rabbitCaretPassword.classList.remove("hop");
   void rabbitCaretPassword.offsetWidth;
   rabbitCaretPassword.classList.add("hop");
