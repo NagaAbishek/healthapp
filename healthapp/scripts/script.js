@@ -162,3 +162,44 @@ password.addEventListener("focus",()=>{
 });
 password.addEventListener("blur",()=>rabbitCaretPassword.style.display="none");
 password.addEventListener("input",updatePasswordCaret);
+
+/* =====================
+   🐰 MOVE RABBIT ON ARROW KEYS (ADD ONLY)
+===================== */
+
+/* EMAIL: move rabbit back on ← → Home / End */
+username.addEventListener("keydown", (e) => {
+  if (
+    e.key === "ArrowLeft" ||
+    e.key === "ArrowRight" ||
+    e.key === "Home" ||
+    e.key === "End"
+  ) {
+    requestAnimationFrame(() => {
+      const pos = username.selectionStart || 0;
+      measureSpan.textContent =
+        username.value.slice(0, pos).replace(/ /g, "\u00a0");
+
+      rabbitCaret.style.left = 8 + measureSpan.offsetWidth + "px";
+    });
+  }
+});
+
+/* PASSWORD: move rabbit back on ← → Home / End */
+password.addEventListener("keydown", (e) => {
+  if (
+    e.key === "ArrowLeft" ||
+    e.key === "ArrowRight" ||
+    e.key === "Home" ||
+    e.key === "End"
+  ) {
+    requestAnimationFrame(() => {
+      const pos = password.selectionStart || 0;
+      measureSpan.textContent = "•".repeat(pos);
+
+      const baseLeft = 5;
+      rabbitCaretPassword.style.left =
+        baseLeft + measureSpan.offsetWidth + "px";
+    });
+  }
+});
