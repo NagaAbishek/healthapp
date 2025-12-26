@@ -215,3 +215,15 @@ body{
   50%{transform:translateY(-75%)}
   100%{transform:translateY(-55%)}
 }
+
+/* =====================
+   HIDE PLACEHOLDER ON FOCUS
+===================== */
+
+.form-glass input::placeholder{
+  transition:opacity .15s ease;
+}
+
+.form-glass input:focus::placeholder{
+  opacity:0;
+}
