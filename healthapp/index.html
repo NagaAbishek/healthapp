@@ -14,8 +14,9 @@
   <!-- 🏥 APP TITLE -->
   <div class="app-title">HealthApp</div>
 
-  <!-- 🐰 RABBIT ANIMATION -->
+  <!-- 🐰 RABBIT LAYER -->
   <div class="rabbit-layer">
+
     <video id="rabbitIdle" class="rabbit active"
       autoplay muted loop playsinline
       src="assets/animations/rabbit-animation-sit.mp4"></video>
@@ -27,6 +28,7 @@
     <video id="rabbitError" class="rabbit"
       muted playsinline
       src="assets/animations/rabbit-animation-sad.mp4"></video>
+
   </div>
 
   <!-- 🎆 FIREWORKS -->
@@ -41,16 +43,19 @@
       <div class="form-glass">
 
         <label>Email</label>
-        <!-- 🐰 EMAIL WITH RABBIT CARET -->
         <div class="input-wrap">
           <input id="username" type="email" placeholder="Enter Email" autocomplete="off" />
           <img id="rabbitCaret" class="rabbit-caret" src="assets/ui/rabbit-caret.png" />
         </div>
 
         <label>Password</label>
-        <input id="password" type="password" placeholder="Enter Password" />
+        <div class="input-wrap">
+          <input id="password" type="password" placeholder="Enter Password" autocomplete="off" />
+          <img id="rabbitCaretPassword" class="rabbit-caret" src="assets/ui/rabbit-caret.png" />
+        </div>
 
         <button id="loginBtn">Login</button>
+
       </div>
     </div>
   </div>
