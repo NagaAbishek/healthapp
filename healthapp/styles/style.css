@@ -197,10 +197,10 @@ body{
 
 .rabbit-caret{
   position:absolute;
-  top:50%;
+  top:35%;
   left:14px;
-  width:32px;
-  height:32px;
+  width:42px;
+  height:42px;
   transform:translateY(-55%);
   pointer-events:none;
   display:none;
