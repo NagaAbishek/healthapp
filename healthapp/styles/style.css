@@ -227,3 +227,75 @@ body{
 .form-glass input:focus::placeholder{
   opacity:0;
 }
+
+/* =====================
+   HOME PAGE
+===================== */
+
+.hidden {
+  display: none;
+}
+
+.home-container {
+  width: 380px;
+  height: 640px;
+  border-radius: 26px;
+  background: linear-gradient(#f8f9ff, #eef1f7);
+  box-shadow: 0 25px 50px rgba(0,0,0,.35);
+  padding: 24px;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.home-header h2 {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.home-header p {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.home-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.health-card {
+  background: #fff;
+  border-radius: 26px;
+  padding: 26px;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  box-shadow: 0 14px 30px rgba(0,0,0,.15);
+}
+
+.health-card img {
+  width: 42px;
+  height: 42px;
+}
+
+.health-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.health-card p {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0a84ff;
+}
+
+.health-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+

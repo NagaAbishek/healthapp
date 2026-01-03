@@ -9,7 +9,7 @@
 
 <body>
 
-<div class="login-container">
+<div class="login-container" id="loginPage">
 
   <!-- 🏥 APP TITLE -->
   <div class="app-title">HealthApp</div>
@@ -60,6 +60,48 @@
     </div>
   </div>
 
+</div>
+
+<!-- =====================
+     HOME PAGE
+===================== -->
+<div class="home-container hidden" id="homePage">
+
+  <div class="home-header">
+    <h2>Welcome 👋</h2>
+    <p>Your Health Overview</p>
+  </div>
+
+  <div class="home-cards">
+
+    <!-- HEART -->
+    <div class="health-card">
+      <img src="assets/icons/heart.png" alt="Heart Rate" class="health-icon" />
+      <div>
+        <h3>Heart Rate</h3>
+        <p>72 bpm</p>
+      </div>
+    </div>
+
+    <!-- STEPS -->
+    <div class="health-card">
+      <img src="assets/icons/steps.png" alt="Steps" class="health-icon" />
+      <div>
+        <h3>Steps</h3>
+        <p>4,320</p>
+      </div>
+    </div>
+
+    <!-- WATER -->
+    <div class="health-card">
+      <img src="assets/icons/water.png" alt="Water Intake" class="health-icon" />
+      <div>
+        <h3>Water Intake</h3>
+        <p>1.8 L</p>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <script src="scripts/script.js"></script>
