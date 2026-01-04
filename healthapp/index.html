@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HealthApp Login</title>
+  <title>HealthApp</title>
   <link rel="stylesheet" href="styles/style.css" />
 </head>
 
 <body>
 
+<!-- =====================
+     LOGIN PAGE
+===================== -->
 <div class="login-container" id="loginPage">
 
-  <!-- 🏥 APP TITLE -->
   <div class="app-title">HealthApp</div>
 
-  <!-- 🐰 RABBIT LAYER -->
+  <!-- RABBIT LAYER -->
   <div class="rabbit-layer">
-
     <video id="rabbitIdle" class="rabbit active"
       autoplay muted loop playsinline
       src="assets/animations/rabbit-animation-sit.mp4"></video>
@@ -28,13 +29,9 @@
     <video id="rabbitError" class="rabbit"
       muted playsinline
       src="assets/animations/rabbit-animation-sad.mp4"></video>
-
   </div>
 
-  <!-- 🎆 FIREWORKS -->
   <div id="fireworks" class="fireworks"></div>
-
-  <!-- TOAST -->
   <div id="successToast" class="success-toast"></div>
 
   <!-- LOGIN FORM -->
@@ -59,7 +56,6 @@
       </div>
     </div>
   </div>
-
 </div>
 
 <!-- =====================
@@ -74,27 +70,25 @@
 
   <div class="home-cards">
 
-    <!-- HEART -->
     <div class="health-card">
-      <img src="assets/icons/heart.png" alt="Heart Rate" class="health-icon" />
+      <img src="assets/icons/heart.png" class="health-icon" />
       <div>
         <h3>Heart Rate</h3>
         <p>72 bpm</p>
       </div>
     </div>
 
-    <!-- STEPS -->
     <div class="health-card">
-      <img src="assets/icons/steps.png" alt="Steps" class="health-icon" />
+      <img src="assets/icons/steps.png" class="health-icon" />
       <div>
         <h3>Steps</h3>
         <p>4,320</p>
       </div>
     </div>
 
-    <!-- WATER -->
-    <div class="health-card">
-      <img src="assets/icons/water.png" alt="Water Intake" class="health-icon" />
+    <!-- WATER CARD -->
+    <div class="health-card water-card">
+      <img src="assets/icons/water.png" class="health-icon" />
       <div>
         <h3>Water Intake</h3>
         <p>1.8 L</p>
@@ -102,6 +96,30 @@
     </div>
 
   </div>
+</div>
+
+<!-- =====================
+     WATER PAGE
+===================== -->
+<div class="water-page hidden" id="waterPage">
+
+  <div class="water-header">
+    <h2>Water Intake</h2>
+    <p id="waterPercent">80%</p>
+  </div>
+
+  <!-- ✨ Smooth human container -->
+  <div class="water-body">
+    <div class="human-card">
+      <object
+        id="waterSvg"
+        type="image/svg+xml"
+        data="assets/water/human.svg">
+      </object>
+    </div>
+  </div>
+
+  <button class="back-btn" id="backToHome">← Back</button>
 </div>
 
 <script src="scripts/script.js"></script>

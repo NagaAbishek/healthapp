@@ -127,7 +127,7 @@ loginBtn.onclick = () => {
 
       // 👉 SWITCH TO HOME PAGE
       setTimeout(() => {
-        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("loginPage").classList.add("hidden");
         document.getElementById("homePage").classList.remove("hidden");
       }, 1200);
 
@@ -208,3 +208,89 @@ password.addEventListener("keydown", (e) => {
     });
   }
 });
+
+/* =====================
+   WATER PAGE (FINAL FIXED)
+===================== */
+document.addEventListener("DOMContentLoaded", () => {
+
+  const waterCard = document.querySelector(".water-card");
+  const waterPage = document.getElementById("waterPage");
+  const homePage = document.getElementById("homePage");
+  const backBtn = document.getElementById("backToHome");
+  const waterSvgObj = document.getElementById("waterSvg");
+  const waterPercentText = document.getElementById("waterPercent");
+
+  const WATER_PERCENT = 80;
+
+  if (waterCard) {
+    waterCard.addEventListener("click", () => {
+      console.log("✅ Water card clicked");
+
+      homePage.classList.add("hidden");
+      waterPage.classList.remove("hidden");
+
+      waterPercentText.textContent = WATER_PERCENT + "%";
+      setWaterLevel(WATER_PERCENT);
+    });
+  }
+
+  if (backBtn) {
+    backBtn.addEventListener("click", () => {
+      waterPage.classList.add("hidden");
+      homePage.classList.remove("hidden");
+    });
+  }
+
+  function setWaterLevel(percent) {
+    waterSvgObj.addEventListener("load", () => {
+
+      const svg = waterSvgObj.contentDocument;
+      if (!svg) return;
+
+      const bodyPath = svg.querySelector("path");
+      if (!bodyPath) return;
+
+      const svgRoot = svg.documentElement;
+      const vb = svgRoot.viewBox.baseVal;
+      const maxH = vb.height;
+      const ns = "http://www.w3.org/2000/svg";
+
+      // Remove old water if exists
+      const oldWater = svg.getElementById("waterFill");
+      if (oldWater) oldWater.remove();
+
+      // defs + clip
+      let clip = svg.getElementById("bodyClip");
+      if (!clip) {
+        const defs = svg.createElementNS(ns, "defs");
+        clip = svg.createElementNS(ns, "clipPath");
+        clip.setAttribute("id", "bodyClip");
+        clip.appendChild(bodyPath.cloneNode(true));
+        defs.appendChild(clip);
+        svgRoot.appendChild(defs);
+      }
+
+      // water rect
+      const water = svg.createElementNS(ns, "rect");
+      water.setAttribute("id", "waterFill");
+      water.setAttribute("x", 0);
+      water.setAttribute("width", vb.width);
+      water.setAttribute("height", maxH);
+      water.setAttribute("y", maxH);
+      water.setAttribute("fill", "#00c4ff");
+      water.setAttribute("clip-path", "url(#bodyClip)");
+
+      svgRoot.insertBefore(water, bodyPath);
+
+      const targetY = maxH * (1 - percent / 100);
+
+      water.animate(
+        [{ y: maxH }, { y: targetY }],
+        { duration: 900, fill: "forwards", easing: "ease-out" }
+      );
+    }, { once: true });
+  }
+
+});
+

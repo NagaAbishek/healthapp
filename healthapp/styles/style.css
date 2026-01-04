@@ -243,6 +243,8 @@ body{
   background: linear-gradient(#f8f9ff, #eef1f7);
   box-shadow: 0 25px 50px rgba(0,0,0,.35);
   padding: 24px;
+  position: relative;
+  z-index: 10;
 }
 
 .home-header {
@@ -273,6 +275,8 @@ body{
   min-height: 110px;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  pointer-events: auto;
   gap: 22px;
   box-shadow: 0 14px 30px rgba(0,0,0,.15);
 }
@@ -297,5 +301,93 @@ body{
   width: 28px;
   height: 28px;
   object-fit: contain;
+}
+
+/* =====================
+   WATER PAGE
+===================== */
+
+.water-page {
+  width: 380px;
+  height: 640px;
+  border-radius: 26px;
+  background: linear-gradient(#f8f9ff, #eef1f7);
+  box-shadow: 0 25px 50px rgba(0,0,0,.35);
+  padding: 20px;
+}
+
+.water-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.water-header h2 {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.water-header p {
+  font-size: 20px;
+  font-weight: 800;
+  color: #00a8cc;
+}
+
+.water-body {
+  display: flex;
+  justify-content: center;
+}
+
+.water-body object {
+  width: 220px;
+  height: 440px;
+}
+
+.back-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  border: none;
+  background: #0a84ff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#loginPage.hidden {
+  display: none !important;
+}
+
+/* =====================
+   SMOOTH HUMAN CARD
+===================== */
+
+.human-card {
+  width: 240px;
+  height: 460px;
+  margin: 0 auto;
+  border-radius: 26px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.95),
+    rgba(255,255,255,0.75)
+  );
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.15),
+    inset 0 0 0 1px rgba(255,255,255,0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.human-card object {
+  width: 200px;
+  height: 420px;
 }
 
